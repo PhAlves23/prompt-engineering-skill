@@ -1,0 +1,89 @@
+<!-- ============================================================
+     Prompt Engineering skill — install block
+     Self-contained: paste anywhere. Scoped styles (.pe-*), no deps.
+     ============================================================ -->
+<section class="pe-install">
+  <header class="pe-head">
+    <h2>Prompt Engineering — AI skill</h2>
+    <p>Turn a raw draft into a production-grade prompt. Returns a rewritten prompt + a changelog of what changed and why — calibrated to your task type and target model.</p>
+  </header>
+
+  <!-- Claude Code -->
+  <div class="pe-card">
+    <h3>Claude Code <span class="pe-badge">recommended</span></h3>
+
+    <p class="pe-label">One-line install</p>
+    <div class="pe-code">
+      <code id="pe-curl">curl -fsSL https://raw.githubusercontent.com/PhAlves23/prompt-engineering-skill/main/install.sh | bash</code>
+      <button class="pe-copy" data-copy="#pe-curl">Copy</button>
+    </div>
+
+    <p class="pe-label">Or install as a plugin (inside Claude Code)</p>
+    <div class="pe-code">
+      <code id="pe-plugin">/plugin marketplace add PhAlves23/prompt-engineering-skill
+/plugin install prompt-engineering</code>
+      <button class="pe-copy" data-copy="#pe-plugin">Copy</button>
+    </div>
+
+    <p class="pe-hint">Then restart Claude Code and run <code>/prompt-engineering</code> — or just say “improve this prompt”.</p>
+  </div>
+
+  <!-- Other tools -->
+  <div class="pe-card">
+    <h3>Other AI tools</h3>
+    <p>Adapters in the repo re-package the skill for each tool’s native rules format:</p>
+    <ul class="pe-tools">
+      <li><strong>Cursor</strong> — <code>.cursor/rules/</code> · invoke with <code>@prompt-engineering</code></li>
+      <li><strong>Windsurf</strong> — <code>.windsurf/rules/</code> · activates by intent</li>
+      <li><strong>GitHub Copilot</strong> — <code>.github/prompts/</code> · run <code>/prompt-engineering</code></li>
+      <li><strong>OpenAI Codex</strong> — <code>AGENTS.md</code> · ask to improve a prompt</li>
+    </ul>
+    <p>
+      <a class="pe-link" href="https://github.com/PhAlves23/prompt-engineering-skill/tree/main/adapters" target="_blank" rel="noopener">Setup guide for other tools →</a>
+      &nbsp;·&nbsp;
+      <a class="pe-link" href="https://github.com/PhAlves23/prompt-engineering-skill" target="_blank" rel="noopener">View on GitHub →</a>
+    </p>
+  </div>
+
+  <p class="pe-foot">MIT licensed · free to use, modify, and share.</p>
+</section>
+
+<style>
+  .pe-install{max-width:760px;margin:2rem auto;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#e6e6e6}
+  .pe-head h2{font-size:1.6rem;margin:0 0 .4rem}
+  .pe-head p{margin:0 0 1.4rem;color:#a0a0a0;line-height:1.55}
+  .pe-card{background:#15161a;border:1px solid #2a2c33;border-radius:14px;padding:1.2rem 1.3rem;margin-bottom:1rem}
+  .pe-card h3{margin:0 0 .8rem;font-size:1.15rem;display:flex;align-items:center;gap:.5rem}
+  .pe-badge{font-size:.65rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;background:#1f6feb;color:#fff;padding:.18rem .5rem;border-radius:999px}
+  .pe-label{margin:.9rem 0 .35rem;font-size:.82rem;color:#8b8f98;font-weight:600}
+  .pe-code{position:relative;background:#0d0e11;border:1px solid #24262d;border-radius:9px;padding:.75rem .9rem;padding-right:4.2rem;overflow-x:auto}
+  .pe-code code{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;color:#d6e2ff;white-space:pre;display:block;line-height:1.5}
+  .pe-copy{position:absolute;top:.55rem;right:.55rem;background:#23252c;color:#cfd3da;border:1px solid #34373f;border-radius:7px;font-size:.72rem;padding:.3rem .6rem;cursor:pointer;transition:background .15s}
+  .pe-copy:hover{background:#2d3038}
+  .pe-copy.pe-done{background:#1a7f37;color:#fff;border-color:#1a7f37}
+  .pe-hint{margin:.9rem 0 0;font-size:.85rem;color:#9aa0a8;line-height:1.5}
+  .pe-hint code,.pe-tools code{background:#0d0e11;border:1px solid #24262d;border-radius:5px;padding:.05rem .35rem;font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;color:#d6e2ff}
+  .pe-tools{list-style:none;padding:0;margin:.6rem 0 1rem}
+  .pe-tools li{padding:.4rem 0;border-bottom:1px solid #22242b;font-size:.9rem;color:#c2c6cd}
+  .pe-tools li:last-child{border-bottom:0}
+  .pe-link{color:#58a6ff;text-decoration:none;font-size:.9rem;font-weight:500}
+  .pe-link:hover{text-decoration:underline}
+  .pe-foot{text-align:center;color:#6b7079;font-size:.8rem;margin-top:1.2rem}
+</style>
+
+<script>
+  (function(){
+    document.querySelectorAll('.pe-copy').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var el = document.querySelector(btn.getAttribute('data-copy'));
+        var text = el ? el.innerText : '';
+        navigator.clipboard.writeText(text).then(function(){
+          var old = btn.textContent;
+          btn.textContent = 'Copied';
+          btn.classList.add('pe-done');
+          setTimeout(function(){ btn.textContent = old; btn.classList.remove('pe-done'); }, 1600);
+        });
+      });
+    });
+  })();
+</script>
