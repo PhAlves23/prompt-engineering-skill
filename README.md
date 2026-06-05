@@ -52,6 +52,14 @@ ln -s ~/.codex/prompt-engineering-skill/plugins/prompt-engineering/skills/prompt
 gemini extensions install https://github.com/PhAlves23/prompt-engineering-skill
 ```
 
+### OpenCode
+
+Reads `AGENTS.md` natively, and supports native skills. See [`docs/INSTALL.opencode.md`](docs/INSTALL.opencode.md) — quickest path:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/PhAlves23/prompt-engineering-skill/main/adapters/codex/AGENTS.md -o AGENTS.md
+```
+
 ### Cursor / Windsurf (rules)
 
 Copy the rule for your tool from [`adapters/`](adapters/):

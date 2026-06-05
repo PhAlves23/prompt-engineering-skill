@@ -1,0 +1,75 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        run: |
+          set -e
+          fail=0
+          while IFS= read -r f; do
+            if python3 -m json.tool "$f" > /dev/null 2>&1; then
+              echo "ok   $f"
+            else
+              echo "FAIL $f (invalid JSON)"; fail=1
+            fi
+          done < <(find . -name '*.json' -not -path './.git/*')
+          exit $fail
+
+      - name: Validate skill & adapter frontmatter
+        run: |
+          python3 - <<'PY'
+          import sys, os, re
+          # os.walk traverses dotfile dirs (.cursor/.github/.windsurf) that glob skips.
+          targets = []
+          for root, _, files in os.walk("."):
+              parts = root.split(os.sep)
+              if ".git" in parts:  # exact component match (won't skip .github)
+                  continue
+              for name in files:
+                  p = os.path.join(root, name)
+                  is_skill = name == "SKILL.md" and "skills" in root
+                  is_adapter = ("adapters" in root) and (
+                      name.endswith(".mdc") or name.endswith(".prompt.md")
+                      or (".windsurf" in root and name.endswith(".md"))
+                  )
+                  if is_skill or is_adapter:
+                      targets.append(p)
+          assert targets, "no skill/adapter files found"
+          print(f"checking {len(targets)} files")
+          fail = False
+          for path in targets:
+              text = open(path, encoding="utf-8").read()
+              if not text.startswith("---"):
+                  print(f"FAIL {path}: missing frontmatter"); fail = True; continue
+              fm = text.split("---", 2)[1]
+              keys = set(re.findall(r"^(\w+):", fm, re.M))
+              if path.endswith("SKILL.md"):
+                  needed = {"name", "description"}
+              else:
+                  needed = {"description"}
+              missing = needed - keys
+              if missing:
+                  print(f"FAIL {path}: missing keys {missing}"); fail = True
+              else:
+                  print(f"ok   {path}")
+          sys.exit(1 if fail else 0)
+          PY
+
+      - name: Lint installer
+        run: bash -n install.sh
+
+      - name: Check Windsurf rule size (<6000 chars)
+        run: |
+          size=$(wc -c < adapters/windsurf/.windsurf/rules/prompt-engineering.md)
+          echo "windsurf rule: $size chars"
+          test "$size" -lt 6000 || { echo "Windsurf rule exceeds 6000 chars"; exit 1; }

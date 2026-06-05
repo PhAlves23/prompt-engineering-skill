@@ -14,5 +14,8 @@ All notable changes to this project are documented here. The format is based on
 - Adapters for other AI tools: Cursor (`.cursor/rules`), Windsurf (`.windsurf/rules`), GitHub Copilot (`.github/prompts`), and OpenAI Codex (`AGENTS.md`).
 - Native multi-platform support: Codex skill discovery via `~/.agents/skills` (see `docs/INSTALL.codex.md`), Gemini CLI extension (`gemini-extension.json` + `GEMINI.md`), Copilot CLI marketplace, and a native Cursor plugin manifest (`.cursor-plugin/plugin.json`).
 - Website install snippets (HTML + Markdown) under `docs/`.
+- OpenCode install guide (`docs/INSTALL.opencode.md`).
+- GitHub Actions CI (`.github/workflows/validate.yml`): validates all JSON, skill/adapter frontmatter, installer syntax, and the Windsurf rule size limit.
+- `.github/FUNDING.yml` for GitHub Sponsors.
 
 [1.0.0]: https://github.com/PhAlves23/prompt-engineering-skill/releases/tag/v1.0.0
