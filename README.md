@@ -10,7 +10,7 @@ It rewrites and optimizes prompts using proven techniques, then hands you a read
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Validate](https://github.com/PhAlves23/prompt-engineering-skill/actions/workflows/validate.yml/badge.svg)](https://github.com/PhAlves23/prompt-engineering-skill/actions/workflows/validate.yml)
-[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/PhAlves23/prompt-engineering-skill/releases)
+[![Version](https://img.shields.io/badge/version-1.1.0-green.svg)](https://github.com/PhAlves23/prompt-engineering-skill/releases)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 Works with **Claude Code · GitHub Copilot · OpenAI Codex · Gemini CLI · OpenCode · Cursor · Windsurf · Cline**
