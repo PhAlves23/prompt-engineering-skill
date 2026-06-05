@@ -1,0 +1,50 @@
+name: Platform support
+description: Report activation/install behavior on a specific AI tool
+title: "[platform] "
+labels: ["platform-support"]
+body:
+  - type: input
+    id: tool
+    attributes:
+      label: Tool & version
+      description: e.g. Cursor 1.x / Windsurf / Copilot CLI / Codex / Gemini CLI
+    validations:
+      required: true
+  - type: dropdown
+    id: install-method
+    attributes:
+      label: Install method
+      options:
+        - curl
+        - Claude plugin
+        - Cursor rule
+        - Cursor plugin
+        - Windsurf rule
+        - Copilot prompt file
+        - Codex symlink
+        - Codex AGENTS.md
+        - Gemini extension
+        - OpenCode
+    validations:
+      required: true
+  - type: textarea
+    id: works
+    attributes:
+      label: What works
+      description: e.g. the skill activates on "improve this prompt", /prompt-engineering runs, etc.
+    validations:
+      required: false
+  - type: textarea
+    id: broken
+    attributes:
+      label: What doesn't
+      description: e.g. no auto-activation, frontmatter not recognized, reference links not loaded.
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested fix
+      description: If you know the tool's native convention, share it (with a link).
+    validations:
+      required: false

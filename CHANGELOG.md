@@ -21,5 +21,10 @@ All notable changes to this project are documented here. The format is based on
 - `SECURITY.md` (vulnerability disclosure policy).
 - `docs/DEVELOPMENT.md` (architecture and release guide).
 - Professional documentation pass: README with badges, table of contents, an example, and per-platform install via collapsible sections; expanded CONTRIBUTING with a beginner-friendly fork/PR workflow.
+- `CITATION.cff` (enables GitHub's "Cite this repository").
+- `.github/CODEOWNERS` (auto-requests maintainer review on every PR).
+- Issue templates converted to structured GitHub Issue Forms (YAML) with dropdowns.
+- README "Example" section shown as a side-by-side before/after with an inline changelog.
+- Repository topics added for discoverability.
 
 [1.0.0]: https://github.com/PhAlves23/prompt-engineering-skill/releases/tag/v1.0.0

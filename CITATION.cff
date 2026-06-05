@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this skill, please cite it as below."
+title: "Prompt Engineering — an AI skill"
+abstract: >-
+  A Claude Code skill (with adapters for Cursor, Windsurf, GitHub Copilot,
+  OpenAI Codex, Gemini CLI, and OpenCode) that rewrites and optimizes prompts
+  using proven prompt engineering techniques, grounded in primary sources from
+  Anthropic, OpenAI, Google, and The Prompt Report.
+type: software
+authors:
+  - family-names: "Andrade Alves"
+    given-names: "Paulo Henrique"
+    alias: PhAlves23
+repository-code: "https://github.com/PhAlves23/prompt-engineering-skill"
+url: "https://github.com/PhAlves23/prompt-engineering-skill"
+license: MIT
+version: 1.0.0
+date-released: "2026-06-05"
+keywords:
+  - prompt-engineering
+  - claude-code
+  - llm
+  - ai
+  - prompts

@@ -1,0 +1,66 @@
+name: Bug report
+description: Something in the skill or its install isn't working
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: A clear description of the bug.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What you expected instead.
+    validations:
+      required: true
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Tool
+      description: Which tool were you using?
+      options:
+        - Claude Code
+        - GitHub Copilot
+        - OpenAI Codex
+        - Gemini CLI
+        - OpenCode
+        - Cursor
+        - Windsurf
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: install-method
+    attributes:
+      label: Install method
+      options:
+        - curl installer
+        - plugin / marketplace
+        - adapter (rule file)
+        - Codex symlink
+        - Gemini extension
+        - manual copy
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+      description: Steps, plus the prompt or input involved if relevant.
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else
+      description: Logs, screenshots, OS, tool version, etc.
+    validations:
+      required: false

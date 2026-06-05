@@ -56,32 +56,53 @@ You paste a draft (or describe what you want). The skill runs a five-phase workf
 
 ## Example
 
-**Input (your draft):**
+<table>
+<tr>
+<th>Your draft (before)</th>
+<th>After the skill</th>
+</tr>
+<tr>
+<td valign="top">
 
 ```
-classify the sentiment of this comment: {{comment}}
+classify the sentiment
+of this comment:
+{{comment}}
 ```
 
-**Output (what the skill returns):**
+</td>
+<td valign="top">
 
 ```
-You are a sentiment analyst specialized in customer feedback.
+You are a sentiment analyst
+specialized in customer feedback.
 
-Classify the sentiment of the comment below into one of these categories: positive, negative, neutral.
+Classify the sentiment of the comment
+below into one of these categories:
+positive, negative, neutral.
 
 <comment>
 {{comment}}
 </comment>
 
 Follow these steps:
-1. Identify the expressions that carry emotion (positive or negative).
-2. Weigh the overall tone, accounting for irony and negation.
-3. Choose the category that best represents the predominant sentiment.
+1. Identify expressions that carry emotion.
+2. Weigh the overall tone, accounting
+   for irony and negation.
+3. Choose the predominant sentiment.
 
-Put your reasoning in <analysis>. On the last line, answer ONLY one word: positive, negative, or neutral.
+Put your reasoning in <analysis>. On the
+last line, answer ONLY one word:
+positive, negative, or neutral.
 ```
 
-Plus a changelog explaining each change (role, enum output contract, short CoT for irony/negation, XML input). See six more cases in [`worked-examples.md`](plugins/prompt-engineering/skills/prompt-engineering/references/worked-examples.md).
+</td>
+</tr>
+</table>
+
+**What the skill changed, and why:** added a **role** (calibrates interpretation), a strict **enum output contract** (`ONLY one word` — parseable), a short **chain-of-thought** (catches irony/negation, the top error source in sentiment), and **XML** around the input (robust to comments with line breaks). Every rewrite ships with this changelog.
+
+See six more cases — coding, extraction, research, agentic, long-context, and an already-good prompt — in [`worked-examples.md`](plugins/prompt-engineering/skills/prompt-engineering/references/worked-examples.md).
 
 ## Installation
 
