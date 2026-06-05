@@ -7,7 +7,8 @@ All notable changes to this project are documented here. The format is based on
 ## [Unreleased]
 
 ### Added
-- Roleplay/persona worked example for startup pitch mentoring in `worked-examples.md`.
+- Roleplay/persona worked example for startup pitch mentoring in `worked-examples.md`. (#3, @saurabhhhcodes)
+- Generated Cline adapter for `.clinerules/prompt-engineering.md` with README install instructions. (#4, @saurabhhhcodes)
 
 ## [1.0.0] - 2026-06-05
 

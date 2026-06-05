@@ -11,7 +11,7 @@ It rewrites and optimizes prompts using proven techniques, then hands you a read
 [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/PhAlves23/prompt-engineering-skill/releases)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-Works with **Claude Code · GitHub Copilot · OpenAI Codex · Gemini CLI · OpenCode · Cursor · Windsurf**
+Works with **Claude Code · GitHub Copilot · OpenAI Codex · Gemini CLI · OpenCode · Cursor · Windsurf · Cline**
 
 </div>
 
@@ -169,14 +169,15 @@ curl -fsSL https://raw.githubusercontent.com/PhAlves23/prompt-engineering-skill/
 </details>
 
 <details>
-<summary><b>Cursor / Windsurf</b></summary>
+<summary><b>Cursor / Windsurf / Cline</b></summary>
 
 Copy the rule for your tool from [`adapters/`](adapters/):
 
 - **Cursor** → `adapters/cursor/.cursor/rules/prompt-engineering.mdc` into your project's `.cursor/rules/` (invoke with `@prompt-engineering`). A native Cursor plugin manifest is also provided at `.cursor-plugin/plugin.json`.
 - **Windsurf** → `adapters/windsurf/.windsurf/rules/prompt-engineering.md` into `.windsurf/rules/` (activates by intent).
+- **Cline** → `adapters/cline/.clinerules/prompt-engineering.md` into `.clinerules/prompt-engineering.md` (workspace rule; ask explicitly).
 
-See [`adapters/README.md`](adapters/README.md) for details and other tools (Cline, Roo, Continue, Zed).
+See [`adapters/README.md`](adapters/README.md) for details and other tools (Roo, Continue, Zed).
 </details>
 
 ## Verify installation
