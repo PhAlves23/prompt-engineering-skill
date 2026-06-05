@@ -48,6 +48,10 @@ Once installed, in any Claude Code session:
 
 The skill activates automatically and returns the optimized prompt + changelog. It improves the prompt — it does not run it (unless you ask).
 
+## Other tools (Cursor, Codex, Copilot, Windsurf…)
+
+This skill is natively a **Claude Code** Agent Skill. To use it in other AI tools, see [`adapters/`](adapters/) — it re-packages the skill as a lean rule for Cursor (`.cursor/rules`), Windsurf (`.windsurf/rules`), GitHub Copilot (`.github/prompts`), and OpenAI Codex (`AGENTS.md`), each in that tool's native format with install instructions. The full reference docs are linked, not copied, so they don't bloat the context window.
+
 ## Uninstall
 
 - Installer/manual: `rm -rf ~/.claude/skills/prompt-engineering`
