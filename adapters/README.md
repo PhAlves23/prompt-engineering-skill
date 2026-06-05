@@ -12,6 +12,7 @@ These adapters re-package the skill for each tool: a **lean, self-contained rule
 | Windsurf | `.windsurf/rules/prompt-engineering.md` | `model_decision` trigger (by intent) |
 | GitHub Copilot | `.github/prompts/prompt-engineering.prompt.md` | `/prompt-engineering` in Copilot Chat |
 | OpenAI Codex | `AGENTS.md` | always loaded; ask explicitly |
+| Cline | `.clinerules/prompt-engineering.md` | workspace rule; ask explicitly |
 
 ## Install
 
@@ -29,10 +30,12 @@ Copy `copilot/.github/prompts/prompt-engineering.prompt.md` into your repo at `.
 ### OpenAI Codex
 Copy `codex/AGENTS.md` to your repo root, or merge its content into an existing `AGENTS.md`. Codex loads it automatically. Ask "improve this prompt" to invoke. The same `AGENTS.md` is also read by several other AGENTS.md-aware tools.
 
-### Other tools (Gemini CLI, Cline, Roo, Continue, Zed…)
+### Cline
+Copy `cline/.clinerules/prompt-engineering.md` into your project at `.clinerules/prompt-engineering.md`. Cline loads markdown and text files from `.clinerules/` as workspace rules, so invoke the adapter by asking "improve this prompt" or pasting a draft and asking to optimize it.
+
+### Other tools (Gemini CLI, Roo, Continue, Zed…)
 No dedicated adapter, but the content is portable markdown. Use the **Codex `AGENTS.md`** as the base and rename/relocate to the tool's convention:
 - Gemini CLI → `GEMINI.md`
-- Cline → `.clinerules`
 - Roo Code → `.roo/rules/`
 - Continue.dev → a rule block in its config
 

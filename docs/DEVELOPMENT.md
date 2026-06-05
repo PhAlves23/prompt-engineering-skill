@@ -24,7 +24,7 @@ The repo is **one skill, packaged for many tools**. There is exactly one authori
                                 │  build-adapters.sh generates
         ┌───────────┬───────────┼───────────┬───────────────┐
         ▼           ▼           ▼           ▼               ▼
-   Cursor.mdc  Windsurf.md  Copilot.md  Codex AGENTS.md  GEMINI.md
+   Cursor.mdc  Windsurf.md  Copilot.md  Codex AGENTS.md  Cline.md  GEMINI.md
 ```
 
 ## Two sources of truth (and why)
@@ -32,13 +32,13 @@ The repo is **one skill, packaged for many tools**. There is exactly one authori
 | Layer | File(s) | Who consumes it |
 |-------|---------|-----------------|
 | **Full skill** | `plugins/.../skills/prompt-engineering/` | Tools that load real skills: Claude Code, Codex (symlink), OpenCode |
-| **Lean adapters** | generated from `adapters/_core.md` | Tools that only take a single "rule" file: Cursor, Windsurf, Copilot, Gemini, Codex `AGENTS.md` |
+| **Lean adapters** | generated from `adapters/_core.md` | Tools that only take a single "rule" file: Cursor, Windsurf, Copilot, Cline, Gemini, Codex `AGENTS.md` |
 
 Why two? The full skill is ~90 KB across many files. Tools like Cursor or Copilot load a rule on every request, so dumping 90 KB there would waste the context window. The lean body carries the essentials (principles, decision table, output format) and **links** to the full references online, which the agent fetches only when needed.
 
 ## The build step
 
-`scripts/build-adapters.sh` reads `adapters/_core.md`, prepends each tool's frontmatter/header, and writes the five adapter files (Cursor, Windsurf, Copilot, Codex `AGENTS.md`, root `GEMINI.md`).
+`scripts/build-adapters.sh` reads `adapters/_core.md`, prepends each tool's frontmatter/header, and writes the six adapter files (Cursor, Windsurf, Copilot, Codex `AGENTS.md`, Cline `.clinerules`, root `GEMINI.md`).
 
 - Run `./scripts/build-adapters.sh` after editing `_core.md`.
 - Run `./scripts/build-adapters.sh --check` to verify nothing is stale (this is what CI runs).
