@@ -1,0 +1,14 @@
+{
+  "name": "prompt-engineering-marketplace",
+  "owner": {
+    "name": "Paulo Henrique Andrade Alves"
+  },
+  "plugins": [
+    {
+      "name": "prompt-engineering",
+      "source": "./plugins/prompt-engineering",
+      "description": "Optimizes and rewrites prompts using proven prompt engineering techniques.",
+      "version": "1.0.0"
+    }
+  ]
+}
