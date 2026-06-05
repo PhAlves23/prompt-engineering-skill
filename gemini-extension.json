@@ -1,0 +1,6 @@
+{
+  "name": "prompt-engineering",
+  "description": "Optimizes and rewrites prompts using proven prompt engineering techniques.",
+  "version": "1.0.0",
+  "contextFileName": "GEMINI.md"
+}
