@@ -65,6 +65,9 @@ jobs:
           sys.exit(1 if fail else 0)
           PY
 
+      - name: Adapters in sync with source
+        run: ./scripts/build-adapters.sh --check
+
       - name: Lint installer
         run: bash -n install.sh
 

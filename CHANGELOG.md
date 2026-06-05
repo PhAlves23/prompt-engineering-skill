@@ -17,5 +17,9 @@ All notable changes to this project are documented here. The format is based on
 - OpenCode install guide (`docs/INSTALL.opencode.md`).
 - GitHub Actions CI (`.github/workflows/validate.yml`): validates all JSON, skill/adapter frontmatter, installer syntax, and the Windsurf rule size limit.
 - `.github/FUNDING.yml` for GitHub Sponsors.
+- Single-source adapter generation: `adapters/_core.md` + `scripts/build-adapters.sh`, with an `--check` mode wired into CI so adapters can't drift.
+- `SECURITY.md` (vulnerability disclosure policy).
+- `docs/DEVELOPMENT.md` (architecture and release guide).
+- Professional documentation pass: README with badges, table of contents, an example, and per-platform install via collapsible sections; expanded CONTRIBUTING with a beginner-friendly fork/PR workflow.
 
 [1.0.0]: https://github.com/PhAlves23/prompt-engineering-skill/releases/tag/v1.0.0
