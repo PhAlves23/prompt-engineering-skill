@@ -32,5 +32,6 @@ All notable changes to this project are documented here. The format is based on
 - Issue templates converted to structured GitHub Issue Forms (YAML) with dropdowns.
 - README "Example" section shown as a side-by-side before/after with an inline changelog.
 - Repository topics added for discoverability.
+- `commitlint` CI workflow that enforces Conventional Commits on every pull request.
 
 [1.0.0]: https://github.com/PhAlves23/prompt-engineering-skill/releases/tag/v1.0.0

@@ -1,0 +1,60 @@
+name: commitlint
+
+on:
+  pull_request:
+
+jobs:
+  conventional-commits:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate commit messages (Conventional Commits)
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          python3 - "$BASE_SHA" "$HEAD_SHA" <<'PY'
+          import re, subprocess, sys
+
+          base, head = sys.argv[1], sys.argv[2]
+          # Subjects of the PR's own commits, excluding merge commits.
+          out = subprocess.run(
+              ["git", "log", "--no-merges", "--format=%s", f"{base}..{head}"],
+              capture_output=True, text=True, check=True,
+          ).stdout.strip()
+          subjects = [s for s in out.split("\n") if s.strip()]
+
+          if not subjects:
+              print("No non-merge commits to check.")
+              sys.exit(0)
+
+          types = "feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert"
+          # type(optional-scope)optional-!: subject  — subject must be non-empty.
+          pattern = re.compile(rf"^({types})(\([a-z0-9 ,._/-]+\))?!?: .+")
+          MAX = 100
+
+          fail = False
+          for s in subjects:
+              problems = []
+              if not pattern.match(s):
+                  problems.append(f"must match '<type>(<scope>): <subject>' (types: {types})")
+              if len(s) > MAX:
+                  problems.append(f"subject too long ({len(s)} > {MAX} chars)")
+              if problems:
+                  fail = True
+                  print(f"FAIL  {s}")
+                  for p in problems:
+                      print(f"      - {p}")
+              else:
+                  print(f"ok    {s}")
+
+          if fail:
+              print("")
+              print("Commit messages must follow Conventional Commits:")
+              print("  https://www.conventionalcommits.org/")
+              print("Example: feat(adapters): add Roo Code adapter")
+              sys.exit(1)
+          PY

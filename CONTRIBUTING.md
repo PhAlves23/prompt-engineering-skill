@@ -104,7 +104,7 @@ This is the standard GitHub "fork and pull request" flow:
 
 ## Commit and PR conventions
 
-- **Commit messages:** short imperative summary, optionally prefixed (`feat:`, `fix:`, `docs:`, `chore:`). Example: `fix: correct the long-context layout rule`.
+- **Commit messages:** must follow [Conventional Commits](https://www.conventionalcommits.org/) — `<type>(<optional-scope>): <subject>`. Allowed types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`. Example: `fix(plugin): correct the long-context layout rule`. CI (the `commitlint` workflow) checks every commit in your PR and fails if one doesn't match.
 - **One logical change per PR.** Smaller PRs are reviewed and merged faster.
 - **Fill in the PR checklist** (sources cited, adapters rebuilt, JSON valid, changelog updated).
 
