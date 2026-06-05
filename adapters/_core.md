@@ -1,9 +1,3 @@
-# AGENTS.md — Prompt Engineering
-
-> Drop this file at the root of a repo (or merge its content into an existing AGENTS.md).
-> Codex and other AGENTS.md-aware tools load it automatically. To use the skill, ask:
-> "improve this prompt", "optimize this prompt", or paste a draft and ask to make it better.
-
 
 # Prompt Engineering
 

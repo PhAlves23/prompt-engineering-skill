@@ -36,5 +36,11 @@ No dedicated adapter, but the content is portable markdown. Use the **Codex `AGE
 - Roo Code → `.roo/rules/`
 - Continue.dev → a rule block in its config
 
-## Keeping them in sync
-All adapters share the same core body (mirrored from `SKILL.md`). When you update the skill, re-generate the adapters so they don't drift. The reference docs are linked, not copied, so those stay current automatically.
+## These files are generated — don't hand-edit them
+All adapter files are built from a single source, [`_core.md`](_core.md), by [`../scripts/build-adapters.sh`](../scripts/build-adapters.sh). To change adapter content, edit `_core.md` and run:
+
+```bash
+./scripts/build-adapters.sh
+```
+
+CI runs `./scripts/build-adapters.sh --check` and fails if a committed adapter doesn't match `_core.md`, so they can't silently drift. The reference docs are linked (not copied), so those stay current automatically. See [`docs/DEVELOPMENT.md`](../docs/DEVELOPMENT.md) for the full architecture.
