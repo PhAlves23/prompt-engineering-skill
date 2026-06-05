@@ -59,6 +59,14 @@ CODEX_HD='# AGENTS.md — Prompt Engineering
 > "improve this prompt", "optimize this prompt", or paste a draft and ask to make it better.
 '
 
+CLINE_HD='# .clinerules — Prompt Engineering
+
+> Drop this file into your project at .clinerules/prompt-engineering.md.
+> Cline loads markdown files from the .clinerules directory as workspace rules.
+> To use the skill, ask: "improve this prompt", "optimize this prompt",
+> or paste a draft and ask to make it better.
+'
+
 GEMINI_HD='# Prompt Engineering — Gemini context
 
 > Loaded by the Gemini CLI extension (see gemini-extension.json). To use it,
@@ -71,6 +79,7 @@ emit "$ROOT/adapters/cursor/.cursor/rules/prompt-engineering.mdc"            "$C
 emit "$ROOT/adapters/windsurf/.windsurf/rules/prompt-engineering.md"         "$WINDSURF_FM" || rc=1
 emit "$ROOT/adapters/copilot/.github/prompts/prompt-engineering.prompt.md"   "$COPILOT_FM"  || rc=1
 emit "$ROOT/adapters/codex/AGENTS.md"                                        "$CODEX_HD"    || rc=1
+emit "$ROOT/adapters/cline/.clinerules/prompt-engineering.md"                "$CLINE_HD"    || rc=1
 emit "$ROOT/GEMINI.md"                                                       "$GEMINI_HD"   || rc=1
 
 if [ "$CHECK" -eq 1 ] && [ "$rc" -ne 0 ]; then
