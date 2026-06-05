@@ -284,6 +284,63 @@ Base every statement on the quotes you extracted. If the contract is silent on a
 
 ---
 
+## Example 8 — Roleplay / persona (weak draft)
+
+**User draft:**
+```
+act as a startup mentor and help me with my pitch
+```
+
+**Expected skill output:**
+
+## Optimized prompt
+```
+You are a pragmatic startup mentor who has helped seed-stage B2B SaaS founders prepare investor pitches.
+
+Audience: a first-time founder preparing a 7-minute pitch for seed investors.
+
+Your job is to improve the founder's pitch while staying in the mentor role: direct, specific, encouraging, and commercially realistic. Do not roleplay as an investor making a funding decision; coach the founder on how to make the pitch stronger.
+
+<pitch_context>
+Company: {{company}}
+Product: {{product}}
+Target customer: {{target_customer}}
+Current traction: {{traction}}
+Main concern: {{main_concern}}
+</pitch_context>
+
+Review the pitch in three passes:
+1. Diagnose the core story: problem, customer urgency, differentiation, business model, traction, and ask.
+2. Identify the three highest-leverage fixes, explaining why each fix matters to seed investors.
+3. Rewrite the pitch opener in the founder's voice, keeping it under 120 words.
+
+Output exactly:
+- Mentor diagnosis
+- Top 3 fixes
+- Rewritten opener
+- Questions I need answered before the next revision
+
+Safety and scope:
+- Do not invent traction, revenue, customer names, or investor commitments.
+- If data is missing, mark it as a gap and ask for it.
+- Keep advice practical; avoid motivational filler.
+```
+
+## What changed
+- Role specificity — "seed-stage B2B SaaS mentor" is narrower than "startup mentor", so the advice targets the right market and funding stage.
+- Audience + duration — a first-time founder and 7-minute seed pitch define the level of detail and what to prioritize.
+- Persona boundaries — the model stays a mentor instead of pretending to be an investor or fabricating a funding decision.
+- Structured context block — separates company facts from instructions and makes missing inputs explicit.
+- Three-pass workflow — forces diagnosis before rewriting, avoiding generic pitch polish.
+- Output contract — gives the founder usable sections instead of a loose conversation.
+- Anti-hallucination rules — blocks invented traction, revenue, customers, and commitments, which are common failure modes in pitch coaching.
+- Tone constraint — "direct, specific, encouraging, commercially realistic" keeps the role useful without drifting into motivational filler.
+
+## Assumptions / open questions
+- Assumed a seed-stage B2B SaaS pitch. If the founder is consumer, biotech, nonprofit, or later-stage, change the mentor domain and evaluation criteria.
+
+---
+
 **Lessons from these examples:**
 1. The changelog connects each change to a **concrete weakness** — never a generic "improved clarity".
 2. When the draft is already good, **say so and do the minimum** — don't invent changes to justify work.
