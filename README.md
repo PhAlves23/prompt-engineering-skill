@@ -1,6 +1,8 @@
 <div align="center">
 
-# Prompt Engineering
+<img src="assets/banner.png" alt="Prompt Engineering — an AI skill that turns a raw draft into a production-grade prompt" width="100%">
+
+<br><br>
 
 **An AI skill that turns a raw draft into a production-grade prompt.**
 
