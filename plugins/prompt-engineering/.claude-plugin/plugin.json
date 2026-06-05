@@ -1,0 +1,16 @@
+{
+  "name": "prompt-engineering",
+  "description": "Optimizes and rewrites prompts using proven prompt engineering techniques: draft diagnosis, canonical structure, technique selection by task type and target model (Claude 4.x, OpenAI, Gemini), with worked examples, a quality checklist, and an evaluation guide.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Paulo Henrique Andrade Alves"
+  },
+  "license": "MIT",
+  "keywords": [
+    "prompt-engineering",
+    "prompts",
+    "claude",
+    "llm",
+    "skill"
+  ]
+}
